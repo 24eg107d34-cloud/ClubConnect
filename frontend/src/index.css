@@ -1,0 +1,160 @@
+
+:root {
+  font-family: Inter, "Segoe UI", Roboto, sans-serif;
+  color: #f1f0f8;
+  background: #0b0b12;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --bg: #0b0b12;
+  --surface: #151520;
+  --surface-light: #1c1c2a;
+  --text: #c4c3d2;
+  --text-h: #f5f3ff;
+  --border: #2b2a3d;
+  --accent: #a78bfa;
+  --accent-strong: #8b5cf6;
+  --accent-bg: rgba(139, 92, 246, 0.14);
+  --shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: var(--bg);
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      ellipse at 15% 0%,
+      rgba(124, 58, 237, 0.12),
+      transparent 40%
+    ),
+    var(--bg);
+  color: var(--text);
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-h);
+  font-family: inherit;
+  line-height: 1.25;
+  font-weight: 650;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  letter-spacing: -1.5px;
+}
+
+h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  letter-spacing: -0.5px;
+}
+
+p {
+  line-height: 1.7;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #c4b5fd;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  color: var(--text-h);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 11px 14px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent-strong);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.16);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #77758c;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+img {
+  max-width: 100%;
+}
+
+code {
+  font-family: Consolas, monospace;
+  background: var(--surface-light);
+  color: #c4b5fd;
+  padding: 3px 7px;
+  border-radius: 5px;
+}
+
+::selection {
+  background: rgba(139, 92, 246, 0.35);
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    letter-spacing: -0.8px;
+  }
+}
