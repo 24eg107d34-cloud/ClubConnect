@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import "./Admin.css";
 
-const API = "http://localhost:5000";
+const API = "https://clubconnect-ch8y.onrender.com";
 
 export default function Admin() {
   const [token, setToken] = useState(
