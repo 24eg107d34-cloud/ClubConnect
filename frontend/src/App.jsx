@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react'
 import Admin from './Admin'
 import './App.css'
 
-const API_URL = 'http://localhost:5000'
+const API_URL = 'https://clubconnect-1-pv64.onrender.com';
+
 
 function App() {
   const [clubs, setClubs] = useState([])
