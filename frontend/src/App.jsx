@@ -3,8 +3,7 @@ import { useEffect, useState } from 'react'
 import Admin from './Admin'
 import './App.css'
 
-const API_URL = 'https://clubconnect-1-pv64.onrender.com';
-
+const API_URL = 'https://clubconnect-1-pv64.onrender.com'
 
 function App() {
   const [clubs, setClubs] = useState([])
@@ -111,16 +110,16 @@ function App() {
     setMessage('')
 
     try {
-      const response = await fetch(`${API_URL}/api/registrations`, {
+      const response = await fetch(`${API_URL}/api/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          student_name: studentName.trim(),
-          roll_number: rollNumber.trim(),
+          studentName: studentName.trim(),
+          rollNumber: rollNumber.trim(),
           email: email.trim(),
-          club_id: joiningClub.id,
+          clubId: joiningClub.id,
         }),
       })
 
@@ -128,8 +127,7 @@ function App() {
 
       if (response.status === 409) {
         throw new Error(
-          data.message ||
-            'You have already registered for this club.',
+          data.message || 'You have already registered for this club.'
         )
       }
 
@@ -138,12 +136,12 @@ function App() {
       }
 
       setMessage(
-        `Your registration for ${joiningClub.name} has been saved successfully!`,
+        `Your registration for ${joiningClub.name} has been saved successfully!`
       )
     } catch (err) {
       console.error('Registration error:', err)
       setRegistrationError(
-        err.message || 'Could not connect to the server.',
+        err.message || 'Could not connect to the server.'
       )
     } finally {
       setSubmitting(false)
@@ -316,7 +314,10 @@ function App() {
         )}
 
         {joiningClub && (
-          <section className="events-section registration-card" id="registration">
+          <section
+            className="events-section registration-card"
+            id="registration"
+          >
             <span className="eyebrow">BECOME A MEMBER</span>
 
             <h2>
@@ -339,13 +340,18 @@ function App() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleRegistration} className="registration-form">
+              <form
+                onSubmit={handleRegistration}
+                className="registration-form"
+              >
                 <label htmlFor="studentName">Student Name</label>
                 <input
                   id="studentName"
                   type="text"
                   value={studentName}
-                  onChange={(event) => setStudentName(event.target.value)}
+                  onChange={(event) =>
+                    setStudentName(event.target.value)
+                  }
                   placeholder="Enter your full name"
                   autoComplete="name"
                   required
@@ -356,7 +362,9 @@ function App() {
                   id="rollNumber"
                   type="text"
                   value={rollNumber}
-                  onChange={(event) => setRollNumber(event.target.value)}
+                  onChange={(event) =>
+                    setRollNumber(event.target.value)
+                  }
                   placeholder="Enter your roll number"
                   required
                 />
@@ -366,7 +374,9 @@ function App() {
                   id="email"
                   type="email"
                   value={email}
-                  onChange={(event) => setEmail(event.target.value)}
+                  onChange={(event) =>
+                    setEmail(event.target.value)
+                  }
                   placeholder="Enter your email"
                   autoComplete="email"
                   required
@@ -388,7 +398,9 @@ function App() {
                     type="submit"
                     disabled={submitting}
                   >
-                    {submitting ? 'Submitting...' : 'Submit Registration'}
+                    {submitting
+                      ? 'Submitting...'
+                      : 'Submit Registration'}
                   </button>
 
                   <button
@@ -413,8 +425,8 @@ function App() {
           <span className="eyebrow">STAY IN THE LOOP</span>
           <h2>Something Exciting Is Coming</h2>
           <p>
-            Club events, workshops, auditions and campus activities will appear
-            here as we build the next features.
+            Club events, workshops, auditions and campus activities
+            will appear here as we build the next features.
           </p>
         </section>
       </main>
